@@ -46,7 +46,7 @@ function App() {
         )}
 
         {/* Main content area */}
-        <div className="flex flex-1 overflow-y-auto">
+        <div className="flex flex-1 overflow-y-auto md:overflow-hidden">
           <div className="flex-1 pr-0 md:pr-2">
             <Routes>
               <Route path="/" element={<HeroPage />} />
