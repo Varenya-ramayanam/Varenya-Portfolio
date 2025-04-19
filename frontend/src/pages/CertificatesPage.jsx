@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import {SiGoogle } from "react-icons/si";
+import { SiGoogle } from "react-icons/si";
 import { GiAchievement } from "react-icons/gi";
 
+// Icon mapping
 const iconMap = {
-//   NPTEL: <SiNptel className="text-orange-400" />,
-//   Coursera: <SiCoursera className="text-blue-500" />,
-//   Udemy: <SiUdemy className="text-purple-400" />,
   Google: <SiGoogle className="text-green-400" />,
   Internship: <GiAchievement className="text-yellow-400" />,
 };
 
+// Certificate data
 const certificateData = {
   "DSA & Programming": [
     {
@@ -67,14 +66,16 @@ const CertificatesPage = () => {
   const categories = Object.keys(certificateData);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white px-6 py-10 relative">
-      <div className="flex flex-col md:flex-row">
-        {/* Certificates Content */}
-        <div className="flex-1 pr-8">
-          <h1 className="text-4xl font-bold mb-6 text-purple-300">My Certificates</h1>
+    <div className="h-screen bg-gray-900 text-white px-6 py-10">
+      <div className="flex flex-col md:flex-row h-[75vh]">
+        {/* Certificates Content (Scrollable) */}
+        <div className="flex-1 pr-8 overflow-y-auto pb-20 no-scrollbar">
+          <h1 className="text-4xl font-bold mb-6 text-purple-300">
+            My Certificates
+          </h1>
           <h2 className="text-2xl font-semibold mb-4">{activeCategory}</h2>
 
-          <div className="space-y-6">
+          <div className="space-y-6 pb-10">
             {certificateData[activeCategory].map((cert, index) => (
               <motion.div
                 key={index}

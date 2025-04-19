@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import { motion, useScroll } from "framer-motion";
-import {
-  FaReact,
-  FaNodeJs,
-  FaPython,
-  FaJava,
-  FaGitAlt,
-} from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaReact, FaNodeJs, FaPython, FaJava, FaGitAlt } from "react-icons/fa";
 import {
   SiCplusplus,
   SiTailwindcss,
@@ -90,24 +84,16 @@ const skillData = {
 
 const SkillsPage = () => {
   const [activeGroup, setActiveGroup] = useState("DSA & Programming");
-  // const { scrollYProgress } = useScroll();
-
   const skillGroups = Object.keys(skillData);
 
   return (
     <div className="min-h-screen bg-gray-900 text-white px-6 py-10 relative">
-      {/* Scroll Progress Bar */}
-      {/* <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-purple-500 origin-left z-50"
-        style={{ scaleX: scrollYProgress }}
-      /> */}
-
-      <div className="flex flex-col md:flex-row">
-        {/* Skills Content */}
-        <div className="flex-1 pr-8">
+      <div className="flex flex-col md:flex-row h-[75vh]">
+        {/* Skills Content (Scrollable) */}
+        <div className="flex-1 pr-8 overflow-y-auto pb-20 no-scrollbar">
           <h1 className="text-4xl font-bold mb-6 text-purple-300">My Skills</h1>
           <h2 className="text-2xl font-semibold mb-4">{activeGroup}</h2>
-
+ 
           <div className="space-y-6">
             {skillData[activeGroup].map((skill, index) => (
               <motion.div
@@ -119,7 +105,9 @@ const SkillsPage = () => {
               >
                 <div className="flex justify-between items-center gap-2 mb-1">
                   <div className="flex items-center gap-2 text-lg">
-                    <span className="text-xl">{iconMap[skill.name] || "🛠️"}</span>
+                    <span className="text-xl">
+                      {iconMap[skill.name] || "🛠️"}
+                    </span>
                     <span>{skill.name}</span>
                   </div>
                   <span className="text-sm text-purple-400">
@@ -139,8 +127,8 @@ const SkillsPage = () => {
           </div>
         </div>
 
-        {/* Skill Groups Navbar */}
-        <div className="md:w-64 mt-10 md:mt-0 md:border-l md:border-gray-700 pl-8">
+        {/* Skill Groups Navbar (Fixed) */}
+        <div className="sm:hidden md:w-64 mt-10 md:mt-0 md:border-l md:border-gray-700 pl-8 flex-shrink-0">
           <h3 className="text-xl font-semibold mb-4 text-purple-300">
             Skill Categories
           </h3>

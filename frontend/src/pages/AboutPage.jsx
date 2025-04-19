@@ -6,7 +6,7 @@ import { Sparkles, Heart, Code2 } from "lucide-react";
 export default function About() {
   return (
     <div className="bg-gray-900 min-h-screen text-white flex flex-col justify-between">
-      <main className="flex flex-col items-center justify-center mt-16 px-6 md:px-20">
+      <main className="flex flex-col items-center justify-center mt-0 px-6 md:px-20">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

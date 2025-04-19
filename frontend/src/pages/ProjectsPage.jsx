@@ -49,6 +49,7 @@ const projectData = {
       image: "https://via.placeholder.com/300x300?text=Portfolio",
       link: "#",
     },
+    
   ],
 };
 
@@ -57,9 +58,9 @@ const ProjectsPage = () => {
   const projectGroups = Object.keys(projectData);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white px-6 py-10 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-gray-900 text-white px-6 py-10 flex flex-col md:flex-row h-[75vh]">
       {/* Left: Project Display */}
-      <div className="flex-1 pr-6">
+      <div className="flex-1 pr-8 overflow-y-auto pb-30 no-scrollbar">
         <h1 className="text-4xl font-bold mb-6 text-purple-300">My Projects</h1>
         <h2 className="text-2xl font-semibold mb-4">{activeGroup}</h2>
 

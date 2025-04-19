@@ -51,7 +51,7 @@ const HeroPage = () => {
       </div>
 
       {/* Right Side: Vertical Navigation with Labels */}
-      <div className="w-full md:w-1/2 text-white">
+      <div className="w-full md:w-1/3 text-white">
         <div className="flex flex-col space-y-4 text-lg">
           <button
             onClick={() => navigate("/skills")}
