@@ -20,9 +20,8 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // Preloader duration
-
-    return () => clearTimeout(timer); // Clean up on unmount
+    }, 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
@@ -30,15 +29,15 @@ function App() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black overflow-hidden px-4">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen w-full bg-black overflow-hidden px-4">
       {/* Left: ProfileCard */}
       {showNavbarAndProfile && (
-        <div className="hidden md:block w-1/2">
+        <div className="hidden md:block md:w-1/2">
           <ProfileCard />
         </div>
       )}
 
-      <div className="bg-gray-900 rounded-2xl shadow-2xl p-6 w-full max-w-7xl h-[90vh] overflow-hidden flex flex-col scroll-smooth mr-10">
+      <div className="bg-gray-900 rounded-2xl shadow-2xl p-4 md:p-6 w-full md:max-w-7xl h-full md:h-[90vh] overflow-hidden flex flex-col scroll-smooth md:mr-10">
         {/* Navbar at top */}
         {showNavbarAndProfile && (
           <div className="mb-4">
@@ -47,8 +46,8 @@ function App() {
         )}
 
         {/* Main content area */}
-        <div className="flex flex-1">
-          <div className="flex-1 pr-2">
+        <div className="flex flex-1 overflow-y-auto">
+          <div className="flex-1 pr-0 md:pr-2">
             <Routes>
               <Route path="/" element={<HeroPage />} />
               <Route path="/about" element={<AboutPage />} />
