@@ -40,7 +40,7 @@ const projectData = {
       description: "Portfolio website showcasing my projects and skills.",
       techStack: ["React", "Framer Motion" , "MongoDb"],
       image: "/images/Portfolio.png",
-      link: "#",
+      link: "https://varenya-portfolio.onrender.com/",
     },
   ],
 };
