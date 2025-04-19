@@ -19,21 +19,21 @@ const ProfileCard = () => {
         <h2 className="text-2xl font-semibold mb-2">Ramayanam</h2>
         <div className="flex space-x-6 mt-4">
           <a
-            href="https://github.com/"
+            href="https://github.com/Varenya-ramayanam"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaGithub size={26} className="hover:text-purple-400" />
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/varenya-ramayanam-a357ba2ab/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaLinkedin size={26} className="hover:text-purple-400" />
           </a>
           <a
-            href="https://instagram.com/"
+            href="https://www.instagram.com/varenya_r/"
             target="_blank"
             rel="noopener noreferrer"
           >

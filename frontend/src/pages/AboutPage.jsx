@@ -1,74 +1,144 @@
-// About.jsx
 import { motion } from "framer-motion";
-import { Sparkles, Heart, Code2 } from "lucide-react";
+import { Download } from "lucide-react"; // Importing download icon
 
+const timeline = [
+  {
+    year: "2025",
+    event: "Developed a full-stack web application - Spotlight using Next.js and Sanity",
+  },
+  {
+    year: "March 2025",
+    event: "Secured 1st place in a Coding Contest - INNOHACK 2025 conducted by IIIT SKLM",
+  },
+  {
+    year: "February 2025",
+    event: "Organized a college coding contest with 100+ participants",
+  },
+  {
+    year: "2025",
+    event: "Developed Planorama – AI-powered travel itinerary planner",
+  },
+  {
+    year: "2024-2025",
+    event: "Built Veda Gifts and Arts – An eCommerce platform for artists",
+  },
+  { year: "2024", event: "Completed 'DSA with Java' from GeeksforGeeks" },
+  {
+    year: "2024",
+    event: "Web Development Internship at CodeClaus - API & UI Optimization",
+  },
+  {
+    year: "2024",
+    event: "Cybersecurity Virtual Internship (AICTE - Palo Alto Networks)",
+  },
+  {
+    year: "2024",
+    event: "AI Intern at Coincent (Languify) - Worked on ML & NLP",
+  },
+  { year: "2024", event: "Elite + Silver Medal in Cloud Computing - NPTEL" },
+  {
+    year: "2024",
+    event: "Elite Medal in Programming & DSA using Python - NPTEL",
+  },
+  {
+    year: "2023",
+    event: "Elite + Silver Medal in Problem-Solving through C - NPTEL",
+  },
+  {
+    year: "2022",
+    event: "Started B.Tech in CSE at MVGR College of Engineering",
+  },
+  {
+    year: "2022",
+    event: "Completed Intermediate from Sri Chaitanya Junior College",
+  },
+  { year: "2020", event: "Completed schooling from The Sun School" },
+];
 
-export default function About() {
+const hobbies = [
+  "🎤 Singing",
+  "💻 Coding",
+  "📚 Learning New Things",
+  "🎶 Music",
+  "🤖 Tech & Innovation",
+  "🎭 Public Speaking",
+];
+
+const About = () => {
   return (
-    <div className="bg-gray-900 min-h-screen text-white flex flex-col justify-between">
-      <main className="flex flex-col items-center justify-center mt-0 px-6 md:px-20">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold text-blue-400 mb-6 text-center"
-        >
-          Hello, I'm Varenya 👋
-        </motion.h1>
+    <div className="bg-gray-900 text-white min-h-screen px-6 sm:px-16 py-12 flex flex-col items-center mt-0 relative h-[75vh] overflow-y-auto pb-80 no-scrollbar">
+      {/* Resume Download Button
+      <a
+        href="/Varenya_Resume.pdf"
+        download="Varenya_Resume.pdf"
+        className="fixed top-20 right-6 z-50 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-lg transition duration-300"
+      >
+        <Download size={20} /> Resume
+      </a> */}
 
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="text-lg md:text-xl text-gray-300 text-center max-w-3xl"
-        >
-          I’m a passionate full-stack developer who loves building interactive web applications. With a knack for creativity and problem-solving, I enjoy blending design with logic to craft delightful user experiences.
-        </motion.p>
+      {/* Title */}
+      <h2 className="text-4xl font-semibold text-blue-300 text-center mb-10">
+        My Journey
+      </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 w-full max-w-4xl">
-          {/* Card 1 */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center text-center"
-          >
-            <Sparkles className="text-yellow-400 mb-3" size={32} />
-            <h2 className="text-xl font-semibold text-blue-300 mb-2">Creative Coder</h2>
-            <p className="text-gray-400 text-sm">
-              I love building things from scratch, especially when they combine design and development.
-            </p>
-          </motion.div>
+      {/* Timeline Container */}
+      <div className="relative w-full max-w-3xl">
+        {/* Vertical Center Line */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-blue-500 h-full"></div>
 
-          {/* Card 2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center text-center"
-          >
-            <Code2 className="text-green-400 mb-3" size={32} />
-            <h2 className="text-xl font-semibold text-blue-300 mb-2">Tech Stack</h2>
-            <p className="text-gray-400 text-sm">
-              MERN Stack, Tailwind, Framer Motion, MongoDB, Firebase, and a sprinkle of Three.js magic.
-            </p>
-          </motion.div>
+        {/* Timeline Items */}
+        {timeline.map((item, index) => {
+          const isEven = index % 2 === 0; // Even-indexed entries
 
-          {/* Card 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col items-center text-center"
-          >
-            <Heart className="text-pink-400 mb-3" size={32} />
-            <h2 className="text-xl font-semibold text-blue-300 mb-2">Hobbies</h2>
-            <p className="text-gray-400 text-sm">
-              I enjoy singing, working on cool side projects, and being part of coding and music clubs 🎶
-            </p>
-          </motion.div>
+          return (
+            <motion.div
+              key={index}
+              className={`flex items-center w-full mb-8 ${
+                isEven ? "justify-start" : "justify-end"
+              }`}
+              initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.3 }}
+            >
+              <div
+                className={`relative bg-gray-800 p-4 rounded-lg shadow-lg w-5/12 ${
+                  isEven ? "text-left" : "text-right"
+                }`}
+              >
+                {/* Dots positioning: Even -> Right, Odd -> Left */}
+                <span
+                  className={`absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full ${
+                    isEven ? "right-[-8px]" : "left-[-8px]"
+                  }`}
+                ></span>
+                <h3 className="text-xl font-semibold text-blue-300">
+                  {item.year}
+                </h3>
+                <p className="text-gray-300">{item.event}</p>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Hobbies Section */}
+      <div className="mt-16 text-center">
+        <h3 className="text-3xl font-semibold text-blue-300 mb-6">
+          Hobbies & Interests
+        </h3>
+        <div className="flex flex-wrap justify-center gap-6">
+          {hobbies.map((hobby, index) => (
+            <span
+              key={index}
+              className="bg-gray-800 text-blue-300 px-4 py-2 rounded-lg shadow"
+            >
+              {hobby}
+            </span>
+          ))}
         </div>
-      </main>
+      </div>
     </div>
   );
-}
+};
+
+export default About;

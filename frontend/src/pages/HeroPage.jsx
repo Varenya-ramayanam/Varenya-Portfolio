@@ -10,11 +10,19 @@ import {
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { TbCertificate } from "react-icons/tb";
+import Navbar from "../components/Navbar";
+
 const HeroPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center w-full h-full px-6 py-8 space-y-8 md:space-y-0 md:space-x-12">
+    <div className="flex flex-col md:flex-row items-center justify-center w-full h-full px-6 py-8 space-y-8 md:space-y-0 md:space-x-12 overflow-y-auto">
+      
+      {/* ✅ Show Navbar only on small screens */}
+      <div className="block md:hidden w-full mb-4">
+        <Navbar />
+      </div>
+
       {/* Left Side: Profile Card */}
       <div className="w-full md:w-1/2 flex justify-center">
         <div className="bg-gray-800 rounded-2xl shadow-xl p-8 flex flex-col items-center w-full max-w-sm text-white">
@@ -25,33 +33,21 @@ const HeroPage = () => {
           />
           <h2 className="text-2xl font-semibold mb-2">Varenya Ramayanam</h2>
           <div className="flex space-x-6 mt-4">
-            <a
-              href="https://github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://github.com/Varenya-ramayanam" target="_blank" rel="noopener noreferrer">
               <FaGithub size={26} className="hover:text-purple-400" />
             </a>
-            <a
-              href="https://linkedin.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.linkedin.com/in/varenya-ramayanam-a357ba2ab/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={26} className="hover:text-purple-400" />
             </a>
-            <a
-              href="https://instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.instagram.com/varenya_r/" target="_blank" rel="noopener noreferrer">
               <FaInstagram size={26} className="hover:text-purple-400" />
             </a>
           </div>
         </div>
       </div>
 
-      {/* Right Side: Vertical Navigation with Labels */}
-      <div className="w-full md:w-1/3 text-white">
+      {/* Right Side: Navigation for medium+ screens */}
+      <div className="hidden md:block w-full md:w-1/3 text-white">
         <div className="flex flex-col space-y-4 text-lg">
           <button
             onClick={() => navigate("/skills")}

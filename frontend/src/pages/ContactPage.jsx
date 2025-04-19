@@ -67,8 +67,7 @@ export default function Contact() {
   return (
     <div className="bg-gray-900 min-h-screen flex flex-col justify-between text-white">
       <main className="flex flex-col items-center justify-center mt-0 px-6 md:px-16">
-      <div className="w-4/5 bg-gray-800 p-8 rounded-2xl shadow-2xl relative flex flex-col md:flex-row items-center gap-8">
-          
+        <div className="w-full md:w-4/5 bg-gray-800 p-8 rounded-2xl shadow-2xl relative flex flex-col md:flex-row items-center gap-8">
           {/* Feedback Form Section */}
           <div className="w-full md:w-1/2">
             <motion.h2

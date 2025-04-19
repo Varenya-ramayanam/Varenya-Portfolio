@@ -20,7 +20,7 @@ const Navbar = () => {
   const isActive = (path) => currentPath === path;
 
   const baseButtonClasses =
-    "flex items-center space-x-2 px-4 py-2 rounded-xl transition w-full";
+    "flex items-center space-x-3 px-4 py-2 rounded-xl transition w-full text-white";
   const activeClass = "bg-purple-600";
   const inactiveClass = "bg-gray-700 hover:bg-purple-600";
 
@@ -34,12 +34,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-gray-900 text-white w-full p-4">
+    <nav className="bg-gray-900 text-white w-full p-4 relative z-50">
       <div className="flex justify-between items-center max-w-6xl mx-auto">
-        {/* Brand or Logo */}
+        {/* Brand */}
         <div className="text-2xl font-bold lg:hidden sm:block">Varenya</div>
 
-        {/* Desktop Nav */}
+        {/* Desktop Menu */}
         <div className="hidden md:flex justify-center items-center gap-5 w-full">
           {menuItems.map((item) => (
             <button
@@ -47,7 +47,7 @@ const Navbar = () => {
               onClick={() => navigate(item.path)}
               className={`${baseButtonClasses} ${
                 isActive(item.path) ? activeClass : inactiveClass
-              } flex items-center justify-center w-32`} // Added w-32 to fix width and center contents
+              } flex items-center justify-center w-32`}
             >
               <div className="flex justify-center items-center gap-3 h-8">
                 <span className="text-xl">{item.icon}</span>
@@ -57,7 +57,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Hamburger Icon */}
+        {/* Hamburger */}
         <div className="md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -68,9 +68,21 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Overlay when menu is open */}
       {menuOpen && (
-        <div className="flex flex-col mt-4 gap-2 md:hidden">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
+      {/* Sliding Sidebar */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-gray-800 shadow-lg transform transition-transform duration-300 ease-in-out z-50 md:hidden ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col p-6 space-y-4 mt-12">
           {menuItems.map((item) => (
             <button
               key={item.path}
@@ -87,7 +99,7 @@ const Navbar = () => {
             </button>
           ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };
